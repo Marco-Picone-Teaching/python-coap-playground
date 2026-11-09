@@ -1,0 +1,18 @@
+# Python CoAP Playground - Shared configuration
+# This file is read by the ConfigManager class (src/coap_playground/config/config_manager.py)
+# and contains the parameters shared by all the servers (process/ folder) and clients (client/ folder).
+
+# CoAP Servers (process/ folder)
+server:
+  # Local IP address on which the CoAP servers listen
+  # (127.0.0.1 accepts only local requests, 0.0.0.0 accepts requests from the other hosts of the network)
+  bind_host: 127.0.0.1
+  # UDP port of the CoAP servers (5683 is the default port for plain CoAP, 5684 for CoAP over DTLS)
+  port: 5683
+
+# CoAP Clients (client/ folder)
+client:
+  # IP address or hostname of the target CoAP Server
+  server_host: 127.0.0.1
+  # UDP port of the target CoAP Server
+  server_port: 5683

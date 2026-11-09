@@ -1,0 +1,35 @@
+[project]
+name = "python-coap-playground"
+version = "0.1.0"
+description = "Python CoAP Playground - aiocoap server/client, Observe, Resource Discovery and IoT Smart Object examples"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiocoap>=0.4.17,<0.5",
+    "LinkHeader>=0.4.3",
+    "kpn-senml>=1.0.1",
+    # cbor2 6.x is built in Rust and may require a Rust compiler on some platforms: 5.x has the same API
+    "cbor2>=5.6,<6",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+string-demo-server = "coap_playground.process.string_demo_server:main"
+temperature-sensor-server = "coap_playground.process.temperature_sensor_server:main"
+obs-temperature-sensor-server = "coap_playground.process.obs_temperature_sensor_server:main"
+smart-object-server = "coap_playground.process.smart_object_server:main"
+coap-get-client = "coap_playground.client.coap_get_client:main"
+coap-post-client = "coap_playground.client.coap_post_client:main"
+coap-put-client = "coap_playground.client.coap_put_client:main"
+coap-content-format-client = "coap_playground.client.coap_content_format_client:main"
+coap-observe-client = "coap_playground.client.coap_observe_client:main"
+coap-discovery-client = "coap_playground.client.coap_resource_discovery_client:main"
+smart-object-controller = "coap_playground.client.smart_object_controller:main"
+senml-demo = "coap_playground.senml.senml_demo:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "coap_playground"
